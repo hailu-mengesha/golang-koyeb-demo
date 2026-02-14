@@ -13,10 +13,15 @@ func main(){
 		port = "8080"
 	}
 	http.HandleFunc("/", HelloHandler)
+	http.HandleFunc("/new", NewHandler)
 	log.Println("Listening on port", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
 
 func HelloHandler(w http.ResponseWriter, _ *http.Request){
 	fmt.Fprintf(w, "Hello from koyeb")
+}
+
+func NewHandler(w http.ResponseWriter, _ *http.Request){
+	fmt.Fprintf(w, "Hello from koyeb New Route")
 }
